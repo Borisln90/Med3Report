@@ -1,0 +1,50 @@
+\documentclass[11pt,a4paper]{article}
+
+% Default margins are too wide all the way around. I reset them here
+\setlength{\topmargin}{-.5in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{.125in}
+\setlength{\textwidth}{6.25in}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{appendix}
+\usepackage[backend=biber, style=authoryear, sorting=nyt]{biblatex}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\graphicspath{{images/}}
+\addbibresource{bib.bib}
+
+\author{Group 307:\\
+Boris Lykke Nielsen, Casper Sørensen, Stefan Lavlund Skau, Emil Rose Høeg\\
+Patrick Øllegaard Chieu, Martin Nygaard, Frederik Ditlev Frøling
+}
+\title{Semester 3 Report}
+
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\include{./chapters/introduction}
+\include{./chapters/methods}
+\include{./chapters/naive_designs}
+\include{./chapters/analysis}
+
+\printbibliography[heading=bibintoc]
+
+% once appendices are started we can't go back
+% make sure this is the last include!!!
+\include{./appendices/appendices}
+
+\end{document}
