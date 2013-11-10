@@ -26,8 +26,8 @@ Isolating a certain color isn’t enough to actually do something with it though
 
 The computer now knows the average position of a certain color in the scene. But what if the program should detect more colors? One way of doing this, is to avoid using a binary image for the output, and instead have the output be of many different values and or colors. Each thresholded color then has their own color in the output.
 
-\subsubsection{BLOB analysis}
-BLOB stands for Binary Large OBject, and in image processing it represents a group of white or black pixels. As mentioned above, it’s possible to detect several colors by having several colors in the output as well. This however means that the program can’t actually separate several objects of the same color. To fix this, a BLOB analysis could be used. To separate each BLOB, a so-called grassfire algorithm 
+\subsubsection{BLOB analysis} \label{sec:blob}
+BLOB stands for \textbf{B}inary \textbf{L}arge \textbf{OB}ject, and in image processing it represents a group of white or black pixels. As mentioned above, it’s possible to detect several colors by having several colors in the output as well. This however means that the program can’t actually separate several objects of the same color. To fix this, a BLOB analysis could be used. To separate each BLOB, a so-called grassfire algorithm 
 \footnote{A grassfire algorithm is an algorithm that detects and separates all BLOBs in a scene, by finding a detected pixel, and then labeling all connected pixels as one BLOB (also known as “burning” the pixels).} 
 is usually used, with either 4- or 8-connectivity \parencite{Moeslund2012}. 4-connectivity checks the pixels above, below, to the left and to the right of the current pixel, whereas 8-connectivity also checks the pixels diagonally from the current pixel. 8-connectivity is more precise in a sense, since it’s able to detect small diagonal lines unlike 4-connectivity, but it takes more processing power.
 \bigskip
