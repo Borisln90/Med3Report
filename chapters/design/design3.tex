@@ -12,7 +12,12 @@ Additionally image BLOBS (See figure \ref{sec:blob} in report for description) w
 As seen on figure \ref{fig:design31}, BLOB \#1 \& \#2 is for implementing rotation and depth for controlling the vehicle forward, backward, and breaking. These BLOBS must be visible and placed adjacent and horizontal to one another. This is to ensure that the tracking of rotation and depth is possible.
 
 Additionally, the BLOBS \#3, \#4 and \#5 will be visible, but perform no functionality before the user blocks the BLOB and thereby activating the desired function/ability of the designated BLOB. By utilizing this method, the procedure of pressing a button is reconstructed and therefore imitates a real controller.
+\bigskip
 
+This design will output the users commands as simulated presses to the keyboard. 
+Because the keyboard mappings differ from game to game, the individual keys that should be simulated by the software will be provided to the software by a profile.
+The profile will contain a mapping of the command types to the keys that should be simulated. 
+The software should have no interaction with the game other than the simulated keyboard presses.
 
 \subsubsection*{Functionality description} \label{Dfunc}
 

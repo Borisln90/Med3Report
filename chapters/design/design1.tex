@@ -39,13 +39,19 @@ Gear shifting can be set up by being the “opposite” of controlling the speed
 \label{fig:design15}
 \end{figure}
 
-To implement and extra action such as using power-ups or something similar, the opposite of the steering control method could be used. If the user is using rotation for steering, left/right movement could be used for extra action functionalities, and vice versa if the user chose left/right movement for steering.
+To implement an extra action such as using power-ups or something similar, the opposite of the steering control method could be used. If the user is using rotation for steering, left/right movement could be used for extra action functionalities, and vice versa if the user chose left/right movement for steering.
 After everything is set up, the user now has his/her own custom-made controller, unlike any other. He/she can use it to control vehicles inside game, only needing a webcam to pick up the colours, and a computer. In this example, the control method for steering is rotation, so the user would use the object as a form of steering wheel. The method for acceleration is scale/zoom, so the user will have to move towards/away from the camera in order to accelerate and brake.
+\bigskip
+
+This design will output the users commands as simulated presses to the keyboard. 
+Because the keyboard mappings differ from game to game, the individual keys that should be simulated by the software will be provided to the software by a profile.
+The profile will contain a mapping of the command types to the keys that should be simulated. 
+The software should have no interaction with the game other than the simulated keyboard presses.
 
 \subsubsection*{Compared to the FPS and List of Requirements}
 The FPS is focused on creating a cheap alternative to already existing vehicle controllers. This design not only creates a solution that needs nothing else than a standard laptop, it also lets the user specify and control almost every aspect of controlling, and lets them create their own controller. It is not even necessary to make a controller; the user can paint their hands and use them instead if they want.
 
-Compared to the list of requirements, this design fulfills everything but the ability to brake while accelerating, nor gear shifting. In the example explained, it also does not fulfill the ability for extra action buttons. However the design can be made more complete to allow such control methods, without the need of additional purchases, such as buttons, by adding customization options to the user.
+Compared to the list of requirements, this design fulfills everything but the ability to brake while accelerating, nor gear shifting. In the example explained, it also does not fulfil the ability for extra action buttons. However the design can be made more complete to allow such control methods, without the need of additional purchases, such as buttons, by adding customization options to the user.
 
 
 \pagebreak[4]
@@ -68,5 +74,3 @@ In the example mentioned earlier, colour tracking is used to track the rotation.
 Potentially, pattern recognition or template matching could be used instead. In that case, the user should be able to wear whatever colours they want, and the background can include any colour as well. Another customization option could also be added with this, so the user could choose whether to use colour tracking or pattern recognition.
 
 A simple version of this could easily be created, simply by removing most of the customization options.
-
-\subsubsection*{How does this design fulfil the design requirements? (IGNORE TEMPORARILY)}

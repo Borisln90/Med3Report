@@ -20,6 +20,12 @@ The other block used in this controller, is used to change the gear up and down 
 In the top of figure \ref{fig:design21} there are two circles marked “L” and “R”. Each of the two blocks will be placed in one of the two circles before the controller will be active. This means that the controller has to determine the block that is used to turn and accelerate/decelerate the car, which will be placed in “L”, while the block placed in “R” will be used to change gear and activate additional features.
 
 Though the user does not need the playing area to be drawn on something in order to use the controller, it would be easier for the user to keep track of what control he/she is activating, when the tiles are illustrated beneath the blocks. However, the colours used in figure \ref{fig:design21} are not mandatory, but simply used in order to facilitate the concept-description.
+\bigskip
+
+This design will output the users commands as simulated presses to the keyboard. 
+Because the keyboard mappings differ from game to game, the individual keys that should be simulated by the software will be provided to the software by a profile.
+The profile will contain a mapping of the command types to the keys that should be simulated. 
+The software should have no interaction with the game other than the simulated keyboard presses.
 
 \subsubsection*{How does this design fulfil the design requirements? (IGNORE TEMPORARILY)}
 
