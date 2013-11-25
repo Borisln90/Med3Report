@@ -42,10 +42,28 @@ Note that there is also a sequential grassfire algorithm, which in some cases is
 \subsubsection{Background Subtraction} \label{sec:BGSub}
 The theory behind detecting changes in video is to have a reference image, and subtract that from the recorded image. This effectively removes the background in the image, and leaves only whatever change has been made in the picture. It is necessary to perform thresholding, and filter any noise away.
 
-\subsubsection{Other detection methods}
-There exists several ways of detecting something in an image or a video feed, for example it might be necessary to detect how much something is rotated, which in turn could require template matching or other methods to find a certain object with a certain pattern.
+\subsubsection{Recognizing patterns} \label{sec:detect}
+There exists several ways of detecting something in an image or a video feed, e.g. it might be necessary to detect how much something is rotated, which in turn could require template matching or other methods to find a certain object with a certain pattern. 
+ARTag \parencite{Fiala2005}, a system built on such principles, uses a feature called a “fiducial marker”, which is an object that is placed in the view of the camera giving the possibility of detecting its position through visual computing.
 
-It can also be useful to be able to track something in a video feed. Arguably some might say that video tracking has already been described in this research, since detecting a certain color for each frame can be interpreted as “tracking” that color \parencite{Moeslund2012}, however that is not necessarily true. In order to actually track something, the program needs to be able to predict where the point it is trying to track will go to in the next frame. Being as many cameras today run at 24-60 frames per second (fps), an object cannot move too far in an image unless it is travelling at extremely high speeds.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=.5]{Artag}
+\caption{Sample fiducial markers utilized in the software of ARTtag. \parencite{Fiala2005}}
+\label{fig:artag}
+\end{figure}
+
+The fiducial markers used in the ARTag software are small patterns consisting of black and white squares (illustrated in figure \ref{fig:artag}).
+One of the benefits for using these kinds of fiducial markers is the immunity to lighting conditions, i.e. variations in the lighting in the scene has a minimal effect on the detection. This is because of the patterns only being bitonal (in figure \ref{fig:artag} black and white only) and therefore reduces the decision made about each pixel to a threshold decision. 
+Furthermore, with the technology of ARTag, the rate of detecting an object, or a pattern, when it does not exist in the scene is reduced to just 0.0039\% (1/26,000).
+Seen in contrast to basic colour detection, where the background partially could consist of the same colour as the object being detected, ARTag takes very good care of this issue. The downside of such a system, compared to a basic colour detection system, is that the system requires more processing power.
+
+
+\subsubsection{Fiducial markers}
+For all of the above three designs the method used to acquire input from the user, is by detecting one or multiple colours, either moving around in the scene or merely the presence of it.  One problem that can occur when sticking to this method is, as described earlier in the analysis (section: \ref{sec:detect}), that falsely detection of an object can occur, if the user, or any other unimportant object for the camera, contains the same or a similar colour as the important object. Not only can this be a problem when there are two similar colours in the scene, but also when the lighting conditions in the scene changes.
+\bigskip
+
+For a prototype based on the above designs (or just one), it would be feasible to stick to the simple colour detection method. This, however, requires that when evaluating the prototype, factors known to cause trouble with the detection, has to be eliminated to get the most reliable results when evaluating on factors that are not related to detection reliability. On the other hand, if the colour recognition method turns out to be unreliable, it would be beneficial to turn to template matching/pattern recognition using the described fiducial markers \parencite{Fiala2005}. If this change in the design should be applied, it has to be considered to what extend the change should be. This means, that the time it takes to process each frame would most likely be increased and therefore it has to be considered how big an increase in processing time is reasonable.
 
 \subsubsection{Summary}
 Color detection is achieved by using thresholding, which isolates certain colors so they can be detected. Color detection is useful if the program only needs to detect one color, or if it needs to detect more than one easily detectable color (for example detection of red, green and blue, in an otherwise white scene).
