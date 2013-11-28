@@ -39,8 +39,44 @@ Gear shifting can be set up by being the “opposite” of controlling the speed
 \label{fig:design15}
 \end{figure}
 
-To implement an extra action such as using power-ups or something similar, the opposite of the steering control method could be used. If the user is using rotation for steering, left/right movement could be used for extra action functionalities, and vice versa if the user chose left/right movement for steering.
-After everything is set up, the user now has his/her own custom-made controller, unlike any other. He/she can use it to control vehicles inside game, only needing a webcam to pick up the colours, and a computer. In this example, the control method for steering is rotation, so the user would use the object as a form of steering wheel. The method for acceleration is scale/zoom, so the user will have to move towards/away from the camera in order to accelerate and brake.
+To implement and extra action such as using power-ups or something similar, the opposite
+of the steering control method could be used. If the user is using rotation for steering,
+left/right movement could be used for extra action functionalities, and vice versa if the user
+chose left/right movement for steering. After everything is set up, the user now has his/her own custom-made controller, unlike any other. He/she can use it to control vehicles inside game, only needing a webcam to pick up the colours, and a computer.
+\bigskip
+
+As a prototype using this design, the control methods that are to be implemented are listed below in categories of what actions the methods are used for. As mentioned the user will choose between one of the methods listed for each action. One method can be listed for two different actions, but if the user chooses one method for one action he/she can not choose it again for another action. The list is as follows:
+
+\begin{itemize}
+	\item Steering the car:
+	\begin{itemize}
+		\item Rotation – Tracking rotation movement of stickers placed on the controller.
+		\item Left/right movement – Tracking stickers on the controller moving horizontally.
+	\end{itemize}
+	
+	\item Acceleration \& braking:
+	\begin{itemize}
+		\item Up/down movement – Tracking vertical movement of the stickers.
+		\item Forward/backward movement.
+		\begin{itemize}
+			\item Tracking change in distance between stickers on the controller.
+			\item Tracking change in size of one sticker (or multiple).
+		\end{itemize}
+	\end{itemize}
+	
+	\item Gear shifting:
+	\begin{itemize}
+		\item Up/down movement – As above.
+		\item Forward/backward movement – As above.
+		\item Hand gesture, up/down movement – Tracking vertical movement of a sticker on a hand. Here the user must release the controller with the one hand.
+	\end{itemize}
+	
+	\item Extra action:
+	\begin{itemize}
+		\item Rotation – As above.
+		\item Left/right movement – As above
+	\end{itemize}
+\end{itemize}
 \bigskip
 
 This design will output the users commands as simulated presses to the keyboard. 
