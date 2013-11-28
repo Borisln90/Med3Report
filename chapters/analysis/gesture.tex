@@ -21,7 +21,7 @@ Secondly it is necessary to know how to make a computer understand gestures give
 The first thing that needs to be done to an image of a gesture is to isolate the gesture from the rest of the image. Some methods of doing this includes background subtraction and hue based extraction based on the hue of human skin \parencite{Busaryev}.
 \bigskip
 
-Background subtraction \footnote{section: \ref{sec:BGSub}} uses the mean values of a series of images of the same background as a basis for subtracting objects from new images. If a pixel in a new image is different enough from the mean value of the series, then the pixel can be used in a binary image of the objects. The problem with this approach is that variable conditions like lighting and noise can corrupt the results by creating false positives or objects with wrong properties. \parencite{Busaryev}
+Background subtraction (section: \ref{sec:BGSub}) uses the mean values of a series of images of the same background as a basis for subtracting objects from new images. If a pixel in a new image is different enough from the mean value of the series, then the pixel can be used in a binary image of the objects. The problem with this approach is that variable conditions like lighting and noise can corrupt the results by creating false positives or objects with wrong properties. \parencite{Busaryev}
 \bigskip
 
 Another approach is hue based extraction, which converts the image to the HSV (hue, saturation, and value) color space and then uses thresholding to detect human skin in the image. Caucasian skin has a very distinguishable hue values, which make it easier to detect through hue rather than regular RGB. \parencite{Busaryev}
