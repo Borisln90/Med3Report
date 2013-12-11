@@ -6,7 +6,8 @@ A software based system to emulate keyboard based input to a vehicle video game.
 
 \newcommand{\specialcell}[2][c]{%
   \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
-\begin{table}[h]
+
+\begin{table}[!htbp]
 \centering
 \begin{tabular}{l | l}
 Conditions & \specialcell{The system should function in different types of environment,\\ operated by users with varying demands and technical expertise.}\\
@@ -27,10 +28,11 @@ Philosophy & \specialcell{Cheap alternative input method\\ for vehicle based vid
 \subsubsection{Design criteria}
 Based on the system definition (section: \ref{sec:sysdef}), and the list of requirements (section: \ref{LOR}), it is possible to prioritize the different design criteria \parencite{Stage2001} of design idea one in relation to the project.
 
-\begin{table}[h]
+\begin{table}[!htbp]
+\centering
 \begin{tabular}{| l | c | c | c | c | c |}
 \hline
-Criteria & Very important & Important & Less important & Irrelevant & Trivial\\
+Criteria & \specialcell{Very\\ important} & Important & \specialcell{Less\\ important} & Irrelevant & Trivial\\
 \hline
 Usability & X & & & & \\
 \hline
@@ -82,9 +84,9 @@ Besides a PC the system will require a webcam. This webcam can be integrated or 
 
 \subsubsection{Component architecture}
 
-\begin{figure}[h]
+\begin{figure}[!htb]
 \centering
-\includegraphics[scale=.8]{Components1}
+\includegraphics[scale=.5]{Components1}
 \caption{System component architecture}
 \label{fig:components}
 \end{figure}
