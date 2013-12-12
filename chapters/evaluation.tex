@@ -1,4 +1,51 @@
 \section{Evaluation}
-\textbf{Overall Purpose:} Finding the best possible method to test and prove your solution to the FPS. The method should be considered from as early as Analysis or at least in Design.
+The following categories cover the similarities of patterns, behaviors, opinions and miscellaneous issues that reside in the data. 
+All data elements are categorized into one of the mentioned categories by utilizing color coding. 
 
-\noindent\textbf{Structure:} Includes method, procedure, result, analysis of results and evaluation discussion. This chapter will, besides from evaluating the effort, be the basis of a re-design.
+\begin{itemize}
+\item \colorbox{NotLavender}{Delay activating functions}
+\item \colorbox{NotGreenYellow}{Acceleration, Reverse/braking relevance}
+\item \colorbox{NotSkyBlue}{Change camera view relevance}
+\item \colorbox{NotOrange}{Turning relevance}
+\item \colorbox{NotRed}{Subject comments and actions}
+\item \colorbox{NotGreen}{Game and in-game crashes}
+\item \colorbox{NotPurple}{Frame rate relevance}
+
+\end{itemize}
+
+\begin{table}[!htbp]
+\begin{tabular}{| p{3.4in} | p{2in} |}
+\hline
+\textbf{Test Subject \# 1: Product} & \textbf{SOTA}\\
+\hline
+\cellcolor{NotLavender}• Slight function delay & \cellcolor{NotRed}• Easier to control\\
+\cellcolor{NotGreenYellow}• Breaking was non responsive. Wheel was not forward enough to enable it. & \cellcolor{NotRed}• Faster function response.\\
+\cellcolor{NotGreenYellow}• The wheel was placed very far forward, in order to accelerate. & \\
+\cellcolor{NotSkyBlue}• Random activation of the camera view change. Occurred +5 times. & \\
+\cellcolor{NotOrange}• Over exaggerated the turning motion to turn. & \\
+\cellcolor{NotSkyBlue}• After practice, enabling the “change view” was improved and functional & \\
+\cellcolor{NotSkyBlue}• Change view happens for no reason. & \\
+\cellcolor{NotSkyBlue}• Camera change view is enabled by flipping the wheel over the shoulder. & \\
+\cellcolor{NotRed}•	Subject quote: “shoulder hurts” & \\
+\cellcolor{NotGreenYellow}•	Subject rarely breaks. & \\
+\cellcolor{NotGreen}•	No in-game crashes. & \\
+\hline\hline
+
+\textbf{Test Subject \# 2: Product} & \textbf{SOTA}\\
+\hline
+\cellcolor{NotGreenYellow}•	No noticeable braking during race & \cellcolor{NotOrange}•	Several occasions: Car was wobbling. Hard left, or hard right.\\
+\cellcolor{NotSkyBlue}•	Change camera is enabled several times on purpose during game & \cellcolor{NotGreen}•	In game crash\\
+\cellcolor{NotGreen}•	Game was reset because of technical difficulties – not associated with product. & \cellcolor{NotRed}•	Over eager\\
+\cellcolor{NotRed}•	Wheel (board) was tilted, excessively when car was out of control (things were going bad). & \\
+\cellcolor{NotOrange}•	Several occasions: Car was wobbling. Hard left, or hard right. & \\
+\cellcolor{NotRed}•	Arms of subject are placed very low. Near thighs in the sitting position. & \\
+\cellcolor{NotRed}•	Noticeable frustration of the test subject. & \\
+\cellcolor{NotLavender}•	Slight function delay & \\
+\cellcolor{NotSkyBlue}•	Tried to enable “change view”. Nothing happened & \\
+\cellcolor{NotGreenYellow}•	Lost control of the forward/backward mechanics  - Trouble activating them after the other. & \\
+\cellcolor{NotRed}•	Kept arms straight, (wheel close to screen) while driving. & \\
+\cellcolor{NotSkyBlue}•	Random change of view occurred 3-4 times. & \\
+\cellcolor{NotRed}•	After in game crash, subject had difficulties getting control over the vehicle, getting back on track. Forward/backward \& turning. & \\
+\cellcolor{NotSkyBlue}•	Change of view was activated once on purpose. & \\
+\end{tabular}
+\end{table}

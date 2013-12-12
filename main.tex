@@ -28,6 +28,15 @@
 \usepackage{subfigure}
 \usepackage{fancyhdr}
 \usepackage[labelfont=bf]{caption}
+\usepackage[usenames,dvipsnames,table]{xcolor}
+
+\colorlet{NotLavender}{Lavender!30}
+\colorlet{NotGreenYellow}{GreenYellow!30}
+\colorlet{NotSkyBlue}{SkyBlue!20}
+\colorlet{NotOrange}{Orange!20}
+\colorlet{NotRed}{Red!30}
+\colorlet{NotGreen}{Green!20}
+\colorlet{NotPurple}{Purple!20}
 
 \DeclareLanguageMapping{english}{english-apa}
 \graphicspath{{images/}}
@@ -62,14 +71,14 @@ Patrick Øllegaard Chieu, Martin Nygaard, Frederik Ditlev Frøling
 \lhead{Chapter \thesection . \emph{\nouppercase{\leftmark}}}
 \rhead{\thepage}
 
-\include{./chapters/introduction}
-\include{./chapters/methods}
-\include{./chapters/naive_designs}
-\include{./chapters/analysis}
-\include{./chapters/lor}
-\include{./chapters/design}
+%\include{./chapters/introduction}
+%\include{./chapters/methods}
+%\include{./chapters/naive_designs}
+%\include{./chapters/analysis}
+%\include{./chapters/lor}
+%\include{./chapters/design}
 %\include{./chapters/implementation}
-%\include{./chapters/evaluation}
+\include{./chapters/evaluation}
 %\include{./chapters/discussion}
 %\include{./chapters/conclusion}
 
@@ -87,6 +96,6 @@ Patrick Øllegaard Chieu, Martin Nygaard, Frederik Ditlev Frøling
 %------------------------------------------------------------------------------
 % once appendices are started we can't go back
 % make sure this is the last include!!!
-\include{./appendices/appendices}
+%\include{./appendices/appendices}
 
 \end{document}
