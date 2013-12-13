@@ -28,6 +28,27 @@
 \usepackage{subfigure}
 \usepackage{fancyhdr}
 \usepackage[labelfont=bf]{caption}
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+
+\definecolor{DarkGreen}{rgb}{0.0,0.4,0.0}
+\definecolor{highlight}{RGB}{255,251,204}
+\renewcommand{\lstlistingname}{Snippet}
+\lstset{language=C++, 
+		basicstyle=\footnotesize, 
+		breaklines=true, 
+		breakatwhitespace=false, 
+		keywordstyle=\bf\color{Blue},
+		firstnumber=1,
+		frame=lines,
+		numbers=left,
+		numbersep=10pt,
+		numberstyle=\tiny\color{Gray},
+		stepnumber=5,
+		stringstyle=\color{Purple},
+		commentstyle=\usefont{T1}{pcr}{m}{sl}\color{DarkGreen},
+		captionpos=b
+}
 
 \DeclareLanguageMapping{english}{english-apa}
 \graphicspath{{images/}}
@@ -39,7 +60,6 @@ Boris Lykke Nielsen, Casper Sørensen, Stefan Lavlund Skau, Emil Rose Høeg\\
 Patrick Øllegaard Chieu, Martin Nygaard, Frederik Ditlev Frøling Nielsen
 }
 \title{Semester 3 Report}
-
 
 \begin{document}
 
@@ -68,7 +88,7 @@ Patrick Øllegaard Chieu, Martin Nygaard, Frederik Ditlev Frøling Nielsen
 \include{./chapters/analysis}
 \include{./chapters/lor}
 \include{./chapters/design}
-%\include{./chapters/implementation}
+\include{./chapters/implementation}
 %\include{./chapters/evaluation}
 %\include{./chapters/discussion}
 %\include{./chapters/conclusion}
