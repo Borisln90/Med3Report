@@ -6,18 +6,17 @@ As the problem statement of this report revolves around using a webcam to contro
 The purpose of this research is to gain an understanding of how the team behind the Kinect approached the problem of creating visual computing software, suitable for games, and what they did to solve it, in order to learn from their mistakes and, more importantly, their solutions.
 
 \subsubsection{Development of the Kinect}
-\subsubsection*{Kinect}
 The Microsoft Xbox 360 Kinect is one of the most successful applications of computer-visual interaction made available to regular consumers of recent years, as proved by the sheer number of sold units during the first 60 days with over 8 million, making it the fastest-selling consumer-electronics device in history \parencite{Knies}.
 
 As the Kinect is probably the most well-known visual computing device for gaming, and it is the device most closely resembling a possible product described by the problem statement, it seems logical to start by researching this.
 
 \subsubsection*{Development:}
-At the onset of development, the Xbox development team were using an algorithm that tracked a user's body movement, and used this string of information to 'predict' the movement. Not only were this method a bit unreliable ,it simply couldn't keep up, at times, it was also prone to 'overloading' \parencite{Knies}, even if the algorithm could keep up with the speed of the movement, the tracking would become increasingly more inaccurate over time, and eventually crash, requiring a reset, thus making it unusable for extended game play.
+At the onset of development, the Xbox development team were using an algorithm that tracked a user's body movement, and used this string of information to 'predict' the movement. Not only were this method a bit unreliable, it simply couldn't keep up, at times, it was also prone to 'overloading' \parencite{Knies}, even if the algorithm could keep up with the speed of the movement, the tracking would become increasingly more inaccurate over time, and eventually crash, requiring a reset, thus making it unusable for extended game play.
 
 \subsubsection*{Changing the approach:}
 The team realized, that they had to change their approach, in order for the application to be suited for video gaming. They figured that as the algorithm crumbled due to it trying to interpret movement from a sequence and therefore trying to predict movement, rather than record it, they needed to change their approach to calculating the movement. \textit{“We couldn’t rely exclusively on context, your history, or your motion in the past. "We realized that we had to look at a single image at a time (...) We had to just look at an image and decide what your body pose was. We knew that this was, in theory, possible, because a person can do this. If you look at a photo, you can draw the position of the joints.”} - Jamie Shotton, 2011.
 
-So instead of trying to predict something as unpredictable as human movement during games, the team figured that the application needed to interpret movement from every frame of a video stream instead - i.e. they needed an algorithm capable of reading a body's position in space from an image, converting said position into data of movement.
+Instead of trying to predict something as unpredictable as human movement during games, the team figured that the application needed to interpret movement from every frame of a video stream instead - i.e. they needed an algorithm capable of reading a body's position in space from an image, converting said position into data of movement.
 
 Research in this specific field already existed in the computer-vision literature, which made the approach seem promising.
 
@@ -34,13 +33,13 @@ The initial algorithm attempted to match the entire body at once, comparing the 
 To some extend, the method was functional, but it wasn't going to be efficient enough for the needs of a gaming hardware - As the algorithm checked the entire body at once, it meant that the library had to represent every possible combination of poses, meaning that the library would grow exponentially, causing it to be way too extensive. \parencite{Knies}
 The team looked at the existing literature for answers, and found a way to solve the issue:
 
-They had to break up the body into multiple different focus points - i.e. instead of labeling the entire body, they had to identify and label each joint separately.
+They had to break up the body into multiple different focus points - i.e. instead of labelling the entire body, they had to identify and label each joint separately.
 
 The way they did this, was to use the "sheep-and-grass" example:
-Using an image of a sheep on a grass field, the process isolates the sheep from the grass, automatically labeling the two as sheep and grass, respectively  (fig. \ref{fig:Sheep}).
+Using an image of a sheep on a grass field, the process isolates the sheep from the grass, automatically labelling the two as sheep and grass, respectively  (fig. \ref{fig:Sheep}).
 \bigskip
 
-This principle was used for the Kinect, to label and color parts of a body. Once completed and combined with the gray-scale image from the camera, it was and possible to locate each joint of the body, as the colored parts are defined as being near a joint. By combining the color code of a joint, and the depth information from the gray-scale image, it was possible to estimate the 3D XYZ coordinates of the joint.
+This principle was used for the Kinect, to label and color parts of a body. Once completed and combined with the gray-scale image from the camera, it was possible to locate each joint of the body, as the colored parts are defined as being near a joint. By combining the color code of a joint, and the depth information from the gray-scale image, it was possible to estimate the 3D XYZ coordinates of the joint.
 
 \subsubsection*{The Kinect comes to life}
 With the object-recognition approach showing promise, the Xbox team started considering how to implement the algorithm on the Xbox 360 hardware, which, at the time, was already three years old. The team needed to figure out a way to implement the tracking algorithm into the existing hardware, taking the ever more demanding games into account.
@@ -51,7 +50,7 @@ To solve this, the team used machine learning, and to do this, they needed data.
 \textit{“Mat would feed that motion-capture data into a computer-graphics tool that generated depth images so we’d have something to test on where we knew the right answer. We had a ground-truth answer associated with each image.”} - Fritzgibbon, 2011.
 \bigskip
 
-Instead of taking images of real-life people and labeling by hand - a method which is both extremely inefficient and expensive - the team decided to synthesize images, by using computer graphics. After some initial issues with speed or reliability, the team figured out a way to generate the synthesized depth images, which enabled the team to generate millions of images, expanding the training library greatly.
+Instead of taking images of real-life people and labelling by hand - a method which is both extremely inefficient and expensive - the team decided to synthesize images, by using computer graphics. After some initial issues with speed or reliability, the team figured out a way to generate the synthesized depth images, which enabled the team to generate millions of images, expanding the training library greatly.
 
 The team then needed to tweak the algorithm to gain greater accuracy, expanding the training library as they went. One problem became apparent, however: it took a very long time to 'train' the program, making the application slow and cumbersome. Using an algorithm dubbed Exemplar ,an algorithm used for object removal and labeling in digital images, \parencite{Cheng2005}, they solved this issue, enabling the application to work fast and accurately enough to run on every single frame of the data-stream of the Kinect depth camera.
 
