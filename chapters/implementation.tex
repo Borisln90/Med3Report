@@ -1,5 +1,5 @@
 \section{Implementation}
-On the background of the chosen design from the design section, a prototype will be built and later used for testing.
+On the basis of the chosen design from the design section, a prototype will be built and later used for testing.
 Throughout this section, there will be a presentation and discussion of how this prototype has been implemented. 
 The implementation consists of two parts: first a software part, where the programming of the application will be described, and second, a description of the physical artefacts that will be used for testing.
 
@@ -28,13 +28,13 @@ This means, that in order to change gear, the user will have to release the whee
 
 \subsection{Development of the software application}
 The main part of this prototype consists of a piece of software developed for registering input from the user and deliver this information to a racing game, which will give the user the ability to control a car in a game. 
-The software that will be described in this chapter is based on the programming language C++. 
+The software that will be described in this chapter is based on the C++ programming language. 
 As the idea of registering input from the user is based on visual computing, the open source C++ toolkit “openFrameworks” has been used, as this toolkit works very well with visual computing.
 To describe the software developed for this prototype, first a walkthrough of the flow of the application will be presented followed by a description of specific parts of the code.
 
 \subsubsection{Flow of the application}
 To be able to use the controller the user has to start up the software on a computer with a webcam connected to it. 
-In figure \ref{fig:imp2}, a flowchart of what happens when the user does certain things is presented. 
+In figure \ref{fig:imp2}, a flowchart of what happens when the user performs certain actions in the user interface is presented. 
 Starting from the top left of the figure, a dot represents the user starting the program, which immediately leads the program to the main menu.
 \bigskip
 
@@ -84,7 +84,7 @@ At this point, the application will no long be running, which stops the flow of 
 
 \subsubsection{Code description} \label{sec:codedesc}
 In this chapter, important and/or interesting parts of the code behind the software will be presented and described in order to show how the actions performed by the user will result in some actions on the screen. 
-Furthermore, the use of image/video processing and analysis will be explained as to how this piece of software obtains and utilizes input from the user through images/a video stream captured by the webcam.
+Furthermore, the use of image/video processing and analysis will be explained as to how this piece of software obtains and utilizes input from the user through a video stream captured by the webcam.
 
 \subsubsection*{Main Menu}
 The mainMenu.cpp file takes care of letting the user select three areas of interest on the screen, and then shows the user what is being detected. 
