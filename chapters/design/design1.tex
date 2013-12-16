@@ -10,7 +10,7 @@ This design revolves around the user being able to customize almost everything. 
 
 
 \subsubsection*{Description}
-The user in this design will be given 3 or more stickers of different colours. See figure \ref{fig:wheel}. In this example, a red, green and a blue sticker are used, but since the design is so customizable, the user should be given the ability to choose colours him/herself. The user can also make the stickers themselves, in which case the design is completely free for the user.
+The user in this design will be given 3 or more stickers of different colours. See figure \ref{fig:wheel}. In this example, a red, green and a blue sticker are used, but since the design is so customizable, the user should be given the ability to choose colours him/herself. The user can also make the stickers themselves, in which case the product would be completely free for the user.
 
 
 \begin{figure}[!htbp]
@@ -29,14 +29,14 @@ The user then places these stickers on some object he/she would like to use as a
 \caption{Menu examples.}\label{fig:select}
 \end{figure}
 
-The user then picks how he/she would like to use the object for steering. Only two options are listed in this example, but more could be added, including ways of customizing the control method e.g. for example, choosing how much you should be able to rotate the controller before reaching the maximum turning speed. See figure \ref{fig:select}.
+The user then picks how he/she would like to use the object for steering. Only two options are listed in this example, but more could be added, including ways of customizing the control method e.g., choosing how much you should be able to rotate the controller before reaching the maximum turning speed. See figure \ref{fig:select}.
 \bigskip
 
 Customization is also allowed for acceleration in which case the user can choose between moving the controller closer or further away from the camera, moving the controller up and down, or moving one hand up or down separately from the steering wheel. 
-The acceleration itself would simply change between max acceleration and no acceleration at all, or acceleration, no acceleration, and breaking, for simplicity. A separate sticker placed inside one’s hand can be used for braking, if it is needed to brake and use the speeder at the same time.
+The acceleration itself would simply change between max acceleration and no acceleration at all (depending on the input from the camera), or acceleration, no acceleration, and braking, for simplicity. A separate sticker placed inside one’s hand can be used for braking, if it is needed to brake and use the speeder at the same time.
 \bigskip
 
-Gear shifting can be set up by being the “opposite” of controlling the speed. So if the user chooses to use up/down movement of the controller for speed, the user can use his/her free hand to separately control the gear shift. If the user holds their hand, with stickers attached, high, it would change the gear up, if the user holds it low, change the gear down, and if it’s in the center area, do not change gear. See figure \ref{fig:design15} for example of rotation and gear shift.
+Gear shifting can be set up by being the “opposite” of controlling the speed. So if the user chooses to use up/down movement of the controller for speed, the user can use his/her free hand to separately control the gear shift. If the user holds their hand, with stickers attached, high, it would change the gear up, if the user holds it low, change the gear down, and if it’s in the center area, do not change gear. See figure \ref{fig:design15} for example of rotation, gear shifting would be done by releasing one hand from the steering wheel and use that for changing gear.
 
 \begin{figure}[!htbp]
 \centering
@@ -45,10 +45,10 @@ Gear shifting can be set up by being the “opposite” of controlling the speed
 \label{fig:design15}
 \end{figure}
 
-To implement and extra action such as using power-ups or something similar, the opposite
+To implement an extra action such as using power-ups or something similar, the opposite
 of the steering control method could be used. If the user is using rotation for steering,
 left/right movement could be used for extra action functionalities, and vice versa if the user
-chose left/right movement for steering. After everything is set up, the user now has his/her own custom-made controller, unlike any other. He/she can use it to control vehicles inside game, only needing a webcam to pick up the colours, and a computer.
+chose left/right movement for steering. After everything is set up, the user now has his/her own custom-made controller, unlike any other. He/she can use it to control things inside games (although this is optimized for vehicle games), only needing a webcam to pick up the colours, and a computer.
 \bigskip
 
 As a prototype using this design, the control methods that are to be implemented are listed below in categories of what actions the methods are used for. As mentioned the user will choose between one of the methods listed for each action. One method can be listed for two different actions, but if the user chooses one method for one action he/she can not choose it again for another action. The list is as follows:
@@ -85,15 +85,15 @@ As a prototype using this design, the control methods that are to be implemented
 \end{itemize}
 \bigskip
 
-This design will output the users commands as simulated presses to the keyboard. 
+This design will output the users commands as simulated presses on the keyboard. 
 Because the keyboard mappings differ from game to game, the individual keys that should be simulated by the software will be provided to the software by a profile.
 The profile will contain a mapping of the command types to the keys that should be simulated. 
 The software should have no interaction with the game other than the simulated keyboard presses.
 
 \subsubsection*{Compared to the FPS and List of Requirements}
-The FPS is focused on creating a cheap alternative to already existing vehicle controllers. This design not only creates a solution that needs nothing else than a standard laptop, it also lets the user specify and control almost every aspect of controlling, and lets them create their own controller. It is not even necessary to make a controller; the user can paint their hands and use them instead if they want.
+The FPS is focused on creating a cheap alternative to already existing vehicle controllers. This design not only creates a solution that needs nothing else than a standard laptop, it also lets the user specify and choose almost every aspect of controlling, and lets them create their own controller. It is not even necessary to make a controller; the user can paint their hands and use them instead if they want.
 
-Compared to the list of requirements, this design fulfills everything but the ability to brake while accelerating, nor gear shifting. In the example explained, it also does not fulfil the ability for extra action buttons. However the design can be made more complete to allow such control methods, without the need of additional purchases, such as buttons, by adding customization options to the user.
+Compared to the list of requirements, this design fulfills everything but the ability to brake while accelerating. In the example explained, it also does not fulfil the ability for extra action buttons. However the design can be made more complete to allow such control methods, without the need of additional purchases, such as buttons, by adding customization options to the user.
 
 
 \pagebreak[2]
@@ -103,16 +103,16 @@ Pros:
 \item It is free of cost, provided the user has a computer and webcam.
 \item Potentially adds an infinite number of customization options.
 \item It is not limited to a single game.
-\end{itemize}
+	\end{itemize}
 Cons:
 \begin{itemize}
-\item The amount of setting-combinations could potentially be complicated for the user.
-\item It could, be potentially, hard to make.
+\item The amount of setting-combinations could be complicated for the user.
+\item It could be hard to make.
 \end{itemize}
 
 \subsubsection*{Software specifications}
 In order to conduct tracking, colour tracking can be used as described earlier. This method would likely be the simplest and easiest way to utilize tracking through a standard web cam. However, there is several limitations to colour tracking such as colour usage which might be worn by the user and therefore limits the usage. Additionally, lighting and other room conditions can alter the usability of colour recognition.
 
-Potentially, pattern recognition or template matching can be an alternative to colour recognition, diminishing the specified complications. In this case, the surrounding environment is not compromised in terms of colour or light.
+Potentially, pattern recognition or template matching could be an alternative to colour recognition, diminishing the specified complications. In this case, the surrounding environment is not compromised in terms of colour.
 
 \pagebreak[2]
