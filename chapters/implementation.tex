@@ -1,5 +1,5 @@
 \section{Implementation}
-On the background of the chosen design from the design section, a prototype will be built and later used for testing.
+On the basis of the chosen design, from the design section, a prototype will be built, and later used for testing.
 Throughout this section, there will be a presentation and discussion of how this prototype has been implemented. 
 The implementation consists of two parts: first a software part, where the programming of the application will be described, and second, a description of the physical artefacts that will be used for testing.
 
@@ -24,17 +24,17 @@ These two creations, the sponge and the wheel, are examples of how a user could 
 The way the wheel controller is used, is by rotating it, like a typical vehicle wheel, in order to turn the car in the game. 
 Also, the wheel can be moved towards and away from the camera to accelerate and decelerate accordingly, while moving the wheel to either the left or the right will activate an extra function in the game, which here has been chosen to be changing the camera view. 
 The sponge, however, is used to shift up and down in gear by raising or lowering it with the right hand accordingly. 
-This means, that in order to change gear, the user will have to release the wheel with the right hand to raise/lower the sponge in front of the webcam, which again is an example of how a user can freely choose how he/she wants to manage those three required fixation points.
+This means, that in order to change gear, the user will have to let go of the wheel with the right hand to raise/lower the sponge in front of the webcam, which again is an example of how a user can freely choose how he/she wants to manage those three required fixation points.
 
 \subsection{Development of the software application}
 The main part of this prototype consists of a piece of software developed for registering input from the user and deliver this information to a racing game, which will give the user the ability to control a car in a game. 
-The software that will be described in this chapter is based on the programming language C++. 
+The software that will be described in this chapter is based on the C++ programming language. 
 As the idea of registering input from the user is based on visual computing, the open source C++ toolkit “openFrameworks” has been used, as this toolkit works very well with visual computing.
 To describe the software developed for this prototype, first a walkthrough of the flow of the application will be presented followed by a description of specific parts of the code.
 
 \subsubsection{Flow of the application}
 To be able to use the controller the user has to start up the software on a computer with a webcam connected to it. 
-In figure \ref{fig:imp2}, a flowchart of what happens when the user does certain things is presented. 
+In figure \ref{fig:imp2}, a flowchart of what happens when the user performs certain actions in the user interface is presented. 
 Starting from the top left of the figure, a dot represents the user starting the program, which immediately leads the program to the main menu.
 \bigskip
 
@@ -79,12 +79,12 @@ A more thoroughly description of the game screen, including how the other game a
 
 When the game screen is shown, it is possible to put it on pause, if the user for some reason would have to temporarily turn off the controller. 
 In the flowchart on figure \ref{fig:imp2}, this is illustrated as the arrow going out from and back into the game screen. 
-When the user finally wants to turn off the controller, the application can be terminated by either pressing the escape button (esc) or clicking the X in the top right of the window, which in the flowchart is represented as the arrow pointing to the dot surrounded by a circle. 
-At this point, the application will no long be running, which stops the flow of the program.
+When the user finally wants to turn off the controller, the application can be terminated by either pressing the escape button (esc) or clicking the X in the top right of the window, which, in the flowchart, is represented as the arrow pointing to the dot surrounded by a circle. 
+At this point, the application will no longer be running, which stops the flow of the program.
 
 \subsubsection{Code description} \label{sec:codedesc}
-In this chapter, important and/or interesting parts of the code behind the software will be presented and described in order to show how the actions performed by the user will result in some actions on the screen. 
-Furthermore, the use of image/video processing and analysis will be explained as to how this piece of software obtains and utilizes input from the user through images/a video stream captured by the webcam.
+In this chapter, important and/or interesting parts of the code behind the software will be presented and described in order to show, how the actions performed by the user will result in some actions on the screen. 
+Furthermore, the use of image/video processing and analysis will be explained as to how this piece of software obtains and utilizes input from the user through a video stream captured by the webcam.
 
 \subsubsection*{Main Menu}
 The mainMenu.cpp file takes care of letting the user select three areas of interest on the screen, and then shows the user what is being detected. 
@@ -206,10 +206,10 @@ if(handIsActive){...}
 
 Snippet \ref{lst:lst5} is run through each time the program updates. 
 First, the current pixel is set to black. 
-This ensures that all pixels that aren’t being thresholded will be black. 
+This ensures that all pixels, not being thresholded, will be black. 
 Then, the program checks if leftIsActive is true, and if it is, it will threshold colors based on the values in the leftVals array. 
 If the current pixel is inside the threshold range, its colour will be changed to red. 
-The same will be done for the two last if-statements, setting the colours to green and blue instead, if the pixel is inside the respective threshold range.
+The same will be done for the two last if-statements, setting the colours to green and blue, respectively, instead, if the pixel is inside the respective threshold range.
 
 
 \subsubsection*{Game Screen}
@@ -256,14 +256,14 @@ if(firstRun){
 In code snippet \ref{lst:lst7} these if-statements makes sure that the “standard” values aren’t send to the program until the program has setup completely. 
 If the code inside the if-statements were run at the start of the program, the values it set would sometimes be incorrect. 
 After setting up, the code inside the runThroughs if-statement is run. 
-This sets some variables that are used as a reference throughout the rest of the program, we’ll call them or “default” values. 
+This sets some variables that are used as a reference throughout the rest of the program, these will be called the “default” values. 
 These default values allow the program to draw a square on the screen. Whenever the center point that the user controls is above, below, to the left, or to the right of this square, a value can/will change. 
 After that, the program instantiates four different classes, which takes care of calculating what movements the user is doing. 
 Please note that these classes have different functionalities implemented in them. 
 However, these class-objects are all initialized with a set function, so the user isn’t actually allowed to pick and choose what function should be run. 
 Example: accel, when initialized, is given the value “accBreak::two\_ point\_ scale” telling the class that it should be running the scaling function inside it using two points.
 These four classes will be further explained below.
-
+\bigskip
 \begin{lstlisting}[caption=Update, label=lst:lst8]
 accel->update(leftPoint, rightPoint);
 extra->update(leftPoint, rightPoint);
@@ -296,7 +296,7 @@ switch(steer->steeringAction){...}
 \end{lstlisting}
 
 In code snippet \ref{lst:lst8}, the first four lines makes sure that each time the program updates, the four objects receives the position of the points on the screen, and updates the objects. 
-Then a switch statement is run for each object, and depending on the output from the specific object, a key press is being simulated as being pressed, or as being released, which the game will then register. 
+Then a switch statement is run for each object, and depending on the output from the specific object, a key is simulated as being pressed, or as being released, which the game will then register. 
 How exactly the information is delivered to, the game will be explained later.
 
 
@@ -307,7 +307,7 @@ Each of the four classes, “steering”, “gearShifting”, “extraAction” 
 When each of these classes are instantiated in the “gameScreen” class, a variable in the specific object called detection is set to the detection method that should be used for that object. 
 Taking an example: when “steering” is instantiated, the constructor of “steering” is called and takes in the parameters, style, rotationLimit, leftLimit and rightLimit, see snippet \ref{lst:lst9}. 
 detection is then set to the value of the parameter style and the steering-object now remembers whether the user has to move the wheel-controller left/right or rotate it in order to activate the steering functions. 
-The same thing goes for the three other class-objects, and when all four are instantiated, the program knows how to detect if the user wants to activate one game-function or another.
+The same thing goes for the three other class-objects, and when all four are instantiated, the program knows how to detect, if the user wants to activate one game-function, or another.
 \bigskip
 
 \begin{lstlisting}[caption=steering constructor, label=lst:lst9]
@@ -319,9 +319,9 @@ steering::steering(Method style, int rotationLimit, int leftLimit, int rightLimi
 }
 \end{lstlisting}
 
-As mentioned earlier in Game Screen, each time the “update” function in gameScreen is run, the four mentioned detection-objects are updated to check if the user is performing the right gesture in order to activate the game-function. 
+As mentioned earlier, in Game Screen, each time the “update” function in gameScreen is run, the four mentioned detection-objects are updated to check if the user is performing the right gesture in order to activate the game-function. 
 In code snippet \ref{lst:lst10}, an example is shown of how rotation of the wheel-controller is registered in the “steering” class.
-The function, “isRotating”, takes the two points p1 and p2 as parameters, which indicates the left and right side of the wheel controller. 
+The function, “isRotating”, takes the two points, p1 and p2, as parameters, which indicates the left and right side of the wheel controller. 
 The first three lines of the function calculates the slope of the line between the two points and converts it into a number of degrees, using a mathematical formula. 
 In the first if-statement the function calls another function, “rotatingCClockwise” seen as the last function in the snippet, which then measures if the slope is rotated counter clockwise to a degree that is bigger than the constant value, defaultRotate. 
 defaultRotate, is used to check if the wheel-controller has been rotated enough, to be interpreted as rotated by intention of the user. 
@@ -374,14 +374,14 @@ Other detection methods implemented are described in the following list:
 	\begin{itemize}
 	\item When the wheel-controller is moved towards the camera, the distance between the two points on the controller will be interpreted as being further apart and vice versa. The value read by the game screen will be: “1” if the wheel is closer to the camera, “-1” if it is farther away and “0” if held at the default distance.
 	
-	\item Scaling detection is used for accelerating/ braking or shifting gear, depending on the user’s choice. In this prototype it is set to be used for accelerating/ braking.
+	\item Scaling detection is used for accelerating/braking or shifting gear, depending on the user’s choice. In this prototype it is set to be used for accelerating/braking.
 	\end{itemize}
 	
 \item Up/Down movement
 	\begin{itemize}
-	\item When the wheel-controller is moved upwards the average position of the two points on the controller is raised relative to the default position the controller was held in when the game screen was initiated. The opposite goes for when the controller is moved downwards.
+	\item When the wheel-controller is moved upwards, the average position of the two points on the controller is raised, relative to the original position of the controller, when the game screen was initiated. The opposite goes for when the controller is moved downwards.
 	
-	\item This detection is also used for either accelerating/braking or gear shifting. In this prototype it is not set to be used for any of them.
+	\item This detection is also used for either accelerating/braking, or gear shifting. In this prototype it is not set to be used for any of them.
 
 	\end{itemize}
 	
@@ -389,31 +389,31 @@ Other detection methods implemented are described in the following list:
 	\begin{itemize}
 	\item This detection methods is just like up/down movement, but detecting movement to the left or right.
 	
-	\item This detection is used for steering the car or changing camera view. In this prototype it is set to change camera view.
+	\item This detection is used for steering the car, or for changing camera view. In this prototype it is set to change camera view.
 	\end{itemize}
 	
 \item Hand slider
 	\begin{itemize}
-	\item The point chosen as the “hand point” is here used to measure if the user is raising the right hand and moving it into the top of a rectangle shown on the screen or in the bottom of it.
+	\item The point chosen as the “hand point” is here used to measure if the user is raising the right hand, and moving it into the top or in the bottom of a rectangle shown on the screen.
 	
 	\item This detection is only used for gear shifting. In this prototype, the method is also set to be used for shifting gear.
 	\end{itemize}
 \end{itemize}
 
 To sum up on the detection-objects: each time the game screen is updating the detection-objects, they will register/detect if the user is making a gesture that is recognized as activating a specific action in the game. 
-When this detection is done, the game screen will then have an overview of what the user wants and then act accordingly. 
+When this detection is done, the game screen will then have an overview of what the user wants, and then act accordingly. 
 
 
 \subsubsection*{Sending a signal to the game window}
-Sending signals to the game is done by emulating keyboard presses used by the game. 
+Sending signals to the game is done by emulating keyboard presses of the keys, used by the game. 
 Keyboard presses are interpreted by the operating system as a specific code value, known as hardware scan codes. 
 The system needs the pass such scan codes to the operating system in order to simulate the keyboard input expected
 by the game. 
 Microsoft provides a function with this purpose as part of .NET, The \texttt{sendInput} function\footnote{SendInput MSDN: \url{http://msdn.microsoft.com/en-us/library/windows/desktop/ms646310.aspx}}.
 \texttt{Sendinput} works by sending keyboard or mouse scan codes to a queue where input waits to be processed by the
 system. 
-When an input is sent it is also specified if this scan code is related to a key press down or if the key is being lifted. 
-In order to simulate a key being held down multiple key-down codes has to be sent consecutively meaning this should be done by a loop that sends input when certain conditions are met.
+When an input is sent, it is also specified if this scan code is related to a key press down, or if the key is being lifted. 
+In order to simulate a key being held down, multiple key-down codes has to be sent consecutively meaning this should be done by a loop that sends input, when certain conditions are met.
 
 \subsubsection*{The KeyOutput class}
 The KeyOutput class handles the sending of scan codes. The class is built up around a function called \texttt{update}, this is the function responsible for sending input to the operating system.
@@ -452,18 +452,18 @@ void KeyOutput::update(void * p)
 }
 \end{lstlisting}
 
-The function is capable of sending two inputs per loop and determines what to send based on \texttt{keyOneEnabled} and \texttt{keyTwoEnabled} which are set by the public \texttt{setKey} function. 
+The function is capable of sending two inputs per loop, and determines what to send based on \texttt{keyOneEnabled}, and \texttt{keyTwoEnabled} which are set by the public \texttt{setKey} function. 
 \texttt{update} starts by creating an \texttt{INPUT}
 object\footnote{INPUT struct, MSDN: \url{msdn.microsoft.com/en-us/library/windows/desktop/ms646270.aspx}} and sets default values for the object. 
-The function uses a loop to send the input in order to simulate a key being held down.
+The function uses a loop to send the input, in order to simulate a key being held down.
 \bigskip
 
 The, possibly, infinite loop used in \texttt{update} presents a few problems;
 Firstly the loop will block the thread that runs it. This means that the entire
-system will be blocked and will not be able to do any other tasks. Secondly the
+system will be blocked, and will not be able to do any other tasks while the loop is running. Secondly the
 loop can send inputs faster than the operating system can process them, which
-can turn into delays while the operating system catches up on the input queue.
-This means that we need to time how often an input is sent.
+can turn into delay, while the operating system catches up on the input queue.
+This means that how the input is being sent, needs to be timed.
 \bigskip
 
 In order to solve the blocking issue the update function will run in a separate
@@ -488,10 +488,10 @@ void KeyOutput::end()
 \end{lstlisting}
 
 The \texttt{begin} function uses the \texttt{\_beginthread} function(XX) to
-start update in a separate thread. enabled is the conditional for the loop and
-is therefore set to true to start the loop. when the loop terminates the thread
-will end itself, therefore the end function only needs to set enabled to false
-in order to end the loop and therefore also end the thread.
+start update in a separate thread. enabled is the conditional for the loop, and
+is therefore set to "true" to start the loop. When the loop terminates the thread
+will end itself, therefore the end function only needs to set enabled to "false",
+in order to end the loop, and therefore also end the thread.
 
 \begin{lstlisting}[caption=KeyOutput setKey function, label=lst:lst14]
 UCHAR KeyOutput::setKey(WORD wScan) 
@@ -517,9 +517,9 @@ UCHAR KeyOutput::setKey(WORD wScan)
 \end{lstlisting}
 
 Communicating values to the update thread is done through static values within the class. 
-\texttt{setKey} takes the scan code that should be sent and returns a value that can be used later to identify the scan code when it needs to be disabled or changed.
+\texttt{setKey} takes the scan code that should be sent, and returns a value that can be used later to identify the scan code, when it needs to be disabled, or changed.
 \bigskip
 
 As described in the list of detection methods above, the different detection methods can be used for activating different actions in the game, according to what the user chooses. 
-In this prototype however, it has been predefined what detections are used for what, to make the implementation a bit easier and to save some time. 
-This means, that the user is currently not able to specify how he/she wants the controller to behave, e.g. choose how the steering functions should be activated.
+In this prototype, however, it has been predefined which detections are used for what, to make the implementation a bit easier, and to save some time. 
+This means that the user is currently not able to specify how he/she wants the controller to behave e.g. choose how the steering functions should be activated.
