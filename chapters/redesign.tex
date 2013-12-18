@@ -7,14 +7,13 @@ In addition to the already mentioned problems, such as the amount of movement re
 As such, in addition to reviewing the gestures required for the different controls, some more thought should be put into how the physical controller is constructed, ensuring a more realistic and appropriate weight and size.
 Also in the usability test we had some problems with activating more than one game function. When some of the testers attempted to activate e.g. the turn left function as well as the gear shift they lost the focus on the game and found the controller difficult to handle.
 
-
 \subsubsection*{Changes to the Gestures}
 In order to improve the game functions changes has to be made based on the knowledge of gestures that have been achieved. A few gestures should be created for each function and then make a usability test to make sure that these new gestures are easy to perform and won’t confuse the user and make the controller uncomfortable and difficult to use.
+
 
 \subsection{Game functions}
 The main issue that can be derived from the data analysis is some people having difficulties with activating certain functions, or having them activating at random. This means that the gestures required to activate the different functions should be reviewed.
 The gear shift function, in particular, needs rethinking as it simply didn't work as intended. Likewise the camera shift function should be reconsidered, as it was quite often activated accidently. Finally, as mentioned previously, the steering, the deceleration and the acceleration functions should be reviewed, making them more consistent with how the input is given to the game.
-
 
 \subsubsection*{Changes to the Game functions}
 To improve the controller it’s first of all required that the amount movement needed to activate the function will be increased so the users won’t activate other game functions by mistake. The gear shift function will require that it is getting more accessible to use since it’s used so much. One option could be that the gear shift will take the camera views place since it’s easy to use and it isn’t that often people want to change the camera view.
@@ -25,11 +24,17 @@ The data analysis shows that some delay was encountered during the tests, it is 
 The program needs optimizing, ensuring as little delay as possible - One specific problem encountered related to the queue of commands which, when exceeding two at once, would cause an error, hence this specific problem is a good place to start.
 The difference between the perceived way of using the controller and the actual input should be corrected - Either the way turning is activated should be changed, making it more obvious that any degree of turn will result in "full turn" in the game in other words; the controller should be binary, like the input. Alternatively the inputs should be changed from a binary keyboard-input to a gradient input, able to emulate the actual movement of the steering wheel. In other words; Consistency.
 
-
 \subsubsection*{Changes to the Delay / Binary Input}
 To improve the game experience for the users a better input system has to be implemented. In the current design we are using binary input which is good for computers. When it comes to controllers on the other hand a gradient input could suit this project much better. This could be done by adding values by every degree that the controller has rotated left of right.
 
-\subsection{Color-detection}
 
-\subsubsection*{Color-detection}
+\subsection{Colour-detection}
+While a lot of the test subjects did not notice any problems with colour, it was clear in the usability test that there were huge problems with the colour-detection. The only reason the test wasn’t affected as much, was because the environment was setup in such a way that it wouldn’t be noticeable.
+Colours on the clothes worn by the subjects were sometimes a problem, in which case they were asked to take off their top shirt, put on a white piece of clothing provided by the test conducters, or make sure that the steering wheel would be covering it.
+Lighting conditions were a huge factor, as the program itself was only made to detect clear, strong colours. If the test was conducted in a dark room, it would be impossible to detect any colours. However, if this change to the program had not been made, it would detect a lot of “wrong” colours (this was figured out during early prototyping).
+The lights proved another problem in the fact that the amount of light that shines upon the steering wheel changes when the position of the steering wheel is changed. This especially proved a problem if the users tilted the steering wheel to point more upwards and downwards (since the light source was in the ceiling). If this happened, the program would often not recognize the colours anymore, and not detect them. This meant that very specific demands had to be set for the lighting conditions.
+
+\subsubsection*{Colour-detection}
+The colour-detection could be improved if the program actually “followed” the colours, instead of just comparing them to a base. By doing this, the program would continually change what colours it is actually detecting, based on changes to the colours in the scene it is seeing. This however creates the problem that the program has to be extremely reliable for the to work, as it could otherwise start tracking unintended colours.
+A better solution would be to use something called fiducials, template matching or pattern recognition. Instead of tracking a colour, this would try to find a certain pattern on the screen and track that. For example, 3 white circles inside a black circle could be shown to the camera. The theory is that the camera has an easier time tracking this, as the difference between the white and the black will be easier to detect in different lighting conditions. Furthermore, detecting white and black should be easier for the camera, at least it seemed like it during early prototyping.
 
