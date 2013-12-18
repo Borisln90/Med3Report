@@ -1,8 +1,8 @@
 \subsection{Design three}
 \label{design3}
 \subsubsection*{Description}
-The idea behind this design is to come as close to preexisting methods of controlling a vehicle game without using an actual controller. This should be done by only utilizing single standard webcam and color recognition for tracking controls and functionalities. The user is required to make/or obtain any desired material that the user wishes to use as controller material e.g. cardboard, piece of paper etc. (theoretically any object should be viable). Thereafter create the desired shape and size representing the steering wheel. 
-Additionally image BLOBS (See figure \ref{sec:blob} in report for description) will be used to control the game. 
+The idea behind this design is to come as close to preexisting methods of controlling a vehicle game without the need for buying a controller. This should be done by only utilizing a single standard webcam and color recognition for tracking controls and functionalities. The user is required to make/or obtain any desired material that the user wishes to use as controller material e.g. cardboard, piece of paper, etc. (theoretically any object should be viable). Thereafter create the desired shape and size representing the steering wheel. 
+Additionally, BLOBs (See section \ref{sec:blob}) will be used to control the game. 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=1]{Design31}
@@ -10,15 +10,10 @@ Additionally image BLOBS (See figure \ref{sec:blob} in report for description) w
 \label{fig:design31}
 \end{figure}
 
-As seen on figure \ref{fig:design31}, BLOB \#1 \& \#2 is for implementing rotation and depth for controlling the vehicle forward, backward, and breaking. These BLOBS must be visible and placed adjacent and horizontal to one another. This is to ensure that the tracking of rotation and depth is possible.
+As seen on figure \ref{fig:design31}, BLOB \#1 \& \#2 is for implementing rotation and depth for controlling the vehicle forward, backward, and breaking. These BLOBs must be visible and placed adjacent and horizontal to one another. This is to ensure that the tracking of rotation and depth is possible.
 
-Additionally, the BLOBS \#3, \#4 and \#5 will be visible, but perform no functionality before the user blocks the BLOB and thereby activating the desired function/ability of the designated BLOB. By utilizing this method, the procedure of pressing a button is reconstructed and therefore imitates a real controller.
+Additionally, the BLOBs \#3, \#4 and \#5 will be visible, but perform no functionality before the user blocks the BLOB and thereby activating the desired function/ability of the designated BLOB. By utilizing this method, the procedure of pressing a button is reconstructed and therefore imitates a real controller.
 \bigskip
-
-This design will output the users commands as simulated presses to the keyboard. 
-Because the keyboard mappings differ from game to game, the individual keys that should be simulated by the software will be provided to the software by a profile.
-The profile will contain a mapping of the command types to the keys that should be simulated. 
-The software should have no interaction with the game other than the simulated keyboard presses.
 
 \subsubsection*{Functionality description} \label{Dfunc}
 
@@ -38,7 +33,7 @@ The software should have no interaction with the game other than the simulated k
 
 By implementing functionalities that is activated by blocking specific BLOBs, it is possible to add numerous functionalities by just adding more BLOBs to the controller. 
 
-By designing the controls in this specific manner, the activation would, theoretically, be easy accessible. This will make it possible for the user to quickly activate certain functionalities or make a specific row of operations, which with movement could be somewhat problematic to perform simultaneously. 
+By designing the controls in this specific manner, the activation would, theoretically, be easily accessible. This will make it possible for the user to quickly activate certain functionalities or make a specific row of operations, which with movement could be somewhat problematic to perform simultaneously. 
 
 One negative aspect of the technique is that it is likely that depending on the positioning of the BLOBs, several functionalities might be accidentally activated. Furthermore, since the controller will have to be positioned towards the webcam in order to track the BLOBs, the user will not be able to see the designated “button” that is present on the controller, and will therefore have to remember the placement of them and will only get feedback from the performed action, in game, if the action is registered in the first place.
 
@@ -49,12 +44,12 @@ As described in the Final Problem Statement (Section: \ref{sec:fps}, page \pager
 \begin{itemize}
 \item Steering left and right (See fig. \ref{fig:design31})
 	\begin{itemize}
-	\item o	Two BLOBs placed horizontally adjacent to each other will make it possible to detect rotation and therefore making it possible to steer a vehicle.
+	\item Two BLOBs placed horizontally adjacent to each other will make it possible to detect rotation and therefore making it possible to steer a vehicle.
 	\end{itemize}
 	
 \item Moving forward \& backward/breaking (See fig. \ref{fig:design33})
 	\begin{itemize}
-	\item By moving the object closer or further away, we are able to detect the movement and therefore track the vehicle moving forward, backward or breaking.By moving the object closer or further away, we are able to detect the movement and therefore track the vehicle moving forward, backward or breaking.
+	\item By moving the object closer or further away, the program is able to detect the movement and therefore simulate the vehicle moving forward, backward or braking.
 	\end{itemize}
 	
 \item Shift gears
@@ -78,5 +73,5 @@ Pros:
 \end{itemize}
 Cons:
 \begin{itemize}
-\item As mentioned in Functionality description (\ref{Dfunc}); By implementing several features and functionalities it is possible to cover several BLOBS by accident and therefore activate undesired functionalities.
+\item As mentioned in Functionality description (\ref{Dfunc}); By implementing several features and functionalities it is possible to cover several BLOBs by accident and therefore activate undesired functionalities.
 \end{itemize}
