@@ -76,6 +76,10 @@ Patrick Øllegaard Chieu, Martin Nygaard, Frederik Ditlev Frøling Nielsen
 %------------------------------------------------------------------------------
 \fancyhf{}
 \pagestyle{plain}
+\pagenumbering{roman}
+
+\include{./chapters/readersguide}
+\include{./chapters/glossary}
 
 \maketitle
 \tableofcontents
@@ -89,6 +93,7 @@ Patrick Øllegaard Chieu, Martin Nygaard, Frederik Ditlev Frøling Nielsen
 \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 \lhead{Chapter \thesection . \emph{\nouppercase{\leftmark}}}
 \rhead{\thepage}
+\pagenumbering{arabic}
 
 \include{./chapters/introduction}
 \include{./chapters/naive_designs}
