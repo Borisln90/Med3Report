@@ -1,7 +1,7 @@
 \subsection{Design three}
 \label{design3}
 \subsubsection*{Description}
-The idea behind this design is to come as close to preexisting methods of controlling a vehicle game without the need for buying a controller. This should be done by only utilizing a single standard webcam and color recognition for tracking controls and functionalities. The user is required to make/or obtain any desired material that the user wishes to use as controller material e.g. cardboard, piece of paper, etc. (theoretically any object should be viable). Thereafter create the desired shape and size representing the steering wheel. 
+The idea behind this design is to come as close to pre-existing methods of controlling a vehicle game without requiring buying a new controller. This should be done by only utilizing a single standard webcam and color recognition for tracking controls and functionalities. The user is required to make, or in another way obtain, any desired material that the user wishes to use as controller material e.g. cardboard, pieces of paper, etc. (theoretically, any object should be viable). Then, they will have to create the desired shape and size representing the steering wheel. 
 Additionally, BLOBs (See section \ref{sec:blob}) will be used to control the game. 
 \begin{figure}[h]
 \centering
@@ -12,7 +12,7 @@ Additionally, BLOBs (See section \ref{sec:blob}) will be used to control the gam
 
 As seen on figure \ref{fig:design31}, BLOB \#1 \& \#2 is for implementing rotation and depth for controlling the vehicle forward, backward, and breaking. These BLOBs must be visible and placed adjacent and horizontal to one another. This is to ensure that the tracking of rotation and depth is possible.
 
-Additionally, the BLOBs \#3, \#4 and \#5 will be visible, but perform no functionality before the user blocks the BLOB and thereby activating the desired function/ability of the designated BLOB. By utilizing this method, the procedure of pressing a button is reconstructed and therefore imitates a real controller.
+Additionally, the BLOBs \#3, \#4 and \#5 will be visible, but perform no functionality before the user blocks the BLOB, thereby activating the desired function/ability of the designated BLOB. By utilizing this method, the procedure of pressing a button is reconstructed and therefore imitates a real controller.
 \bigskip
 
 \subsubsection*{Functionality description} \label{Dfunc}
@@ -49,29 +49,29 @@ As described in the Final Problem Statement (Section: \ref{sec:fps}, page \pager
 	
 \item Moving forward \& backward/breaking (See fig. \ref{fig:design33})
 	\begin{itemize}
-	\item By moving the object closer or further away, the program is able to detect the movement and therefore simulate the vehicle moving forward, backward or braking.
+	\item By moving the object closer, or further away, the program is able to detect the movement, thereby simulating the vehicle moving forward, backward or braking.
 	\end{itemize}
 	
 \item Shift gears
 	\begin{itemize}
-	\item By implementing two BLOBs with separate colors, when the specific BLOB is blocked and therefore not visible, the implemented functionality of gear shift is activated, up or down depending on the implemented functions.
+	\item By implementing two BLOBs, with separate colors, when the specific BLOB is blocked and therefore not visible, the implemented functionality of gear shift is activated, up or down depending on the implemented functions.
 	\end{itemize}
 	
 \item Utility Button(s)
 	\begin{itemize}
-	\item For each game, there are several functionalities which are specific for that game. Therefore a BLOB, with the same procedure as the BLOBs for shifting gears will be implemented.  That will have functionalities which will be defined by the specific vehicle game that is being played. This can be extra utilities such as power boost, attack, etc.
+	\item For each game, there are several functionalities which are specific for that game. Therefore a BLOB, with the same procedure as the BLOBs for shifting gears will be implemented, that will have functionalities which will be defined by the specific vehicle game being played. This can be extra utilities such as power boost, attack, etc.
 	\end{itemize}
 \end{itemize}
 
 \subsubsection*{Pros and cons}
 Pros:
 \begin{itemize}
-\item The user is able to create a controller with a shape and size, which is suitable for the individual’s preferences.
+\item The user is able to create a controller with a shape and size, which is suitable for the individual's preferences.
 \item The required BLOBs except the two red BLOBs that is used for rotation and depth, can be placed anywhere on the assembled controller which is suitable for the individual preferences of the player. 
-\item Since activation of functionalities only requires that a certain BLOB is blocked, possibly several functions can be activated simultaneously or rapidly after one another without much delay or effort based on the positioning of the BLOBs.
+\item Since activation of functionalities only requires that a certain BLOB is blocked, possibly several functions can be activated simultaneously, or rapidly, after one another without much delay or effort, based on the positioning of the BLOBs.
 \item It is possible to implement a large number of additional functionalities.
 \end{itemize}
 Cons:
 \begin{itemize}
-\item As mentioned in Functionality description (\ref{Dfunc}); By implementing several features and functionalities it is possible to cover several BLOBs by accident and therefore activate undesired functionalities.
+\item As mentioned in the Functionality description (\ref{Dfunc}); By implementing several features and functionalities, it is possible to cover several BLOBs by accident, thereby accidentally activating undesired functionalities.
 \end{itemize}
