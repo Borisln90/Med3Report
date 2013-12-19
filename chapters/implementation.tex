@@ -8,9 +8,9 @@ As explained in the chosen design, the idea with the physical artefact used as a
 In order to create a prototype usable for testing, a simple wheel-like controller has been created used to control the acceleration, braking/reversing, camera view and steering of the car. 
 Additionally, to shift gear up and down, a yellow sponge was used and managed with the right hand. 
 In figure \ref{fig:imp1} a picture of both the sponge and the wheel-like controller is shown. 
-The sponge is used as the yellow colour is fairly easy to distinguish from other colours. 
-The wheel controller in the right side of the figure is made of a piece of cardboard with an attached A4-sized piece of paper, on which is printed three colours. 
-This wheel has the two main colours, red and blue, which are used as fixation points to determine the right and the left side of wheel. 
+The sponge is used as the yellow color is fairly easy to distinguish from other colors. 
+The wheel controller in the right side of the figure is made of a piece of cardboard with an attached A4-sized piece of paper, on which is printed three colors. 
+This wheel has the two main colors, red and blue, which are used as fixation points to determine the right and the left side of wheel. 
 These two creations, the sponge and the wheel, are examples of how a user could choose to design his/her own controller.
 \bigskip
 
@@ -45,14 +45,14 @@ Starting from the top left of the figure, a dot represents the user starting the
 \label{fig:imp2}
 \end{figure}
 
-In the main menu, the user is asked to give some information about which colours, in the image captured by the webcam, are used as the left and right point of the wheel-part of the controller. 
-These two colours are chosen by marking the area in the image, in which each of the colours are represented. 
-In figure \ref{fig:imp3} an example of choosing the colours can be seen. 
-First, the left point (the red colour on the controller) has been chosen, by clicking on the little box to the left of the text saying “Add left point”.
+In the main menu, the user is asked to give some information about which colors, in the image captured by the webcam, are used as the left and right point of the wheel-part of the controller. 
+These two colors are chosen by marking the area in the image, in which each of the colors are represented. 
+In figure \ref{fig:imp3} an example of choosing the colors can be seen. 
+First, the left point (the red color on the controller) has been chosen, by clicking on the little box to the left of the text saying “Add left point”.
 Hereafter, the user has to click and drag on the image to the left in the figure around a part of the red mark on the controller. 
-The program then finds all the red-coloured pixels in the left image and represents them in the right image as pure red pixels. 
+The program then finds all the red-colored pixels in the left image and represents them in the right image as pure red pixels. 
 After choosing the left point, the right point can be chosen, which is the ongoing action in the figure. 
-The last point, “hand point”, is the colour that should represent the gear-shifting controller, described as the yellow sponge earlier.
+The last point, “hand point”, is the color that should represent the gear-shifting controller, described as the yellow sponge earlier.
 \bigskip
 
 \begin{figure}[!htbp]
@@ -62,7 +62,7 @@ The last point, “hand point”, is the colour that should represent the gear-s
 \label{fig:imp3}
 \end{figure}
 
-Back in the flowchart in figure \ref{fig:imp2}, the arrows going out and back into the main menu, illustrates that, when the user selects a colour to use as one of the points, it is registered, but the main menu keeps open. 
+Back in the flowchart in figure \ref{fig:imp2}, the arrows going out and back into the main menu, illustrates that, when the user selects a color to use as one of the points, it is registered, but the main menu keeps open. 
 When the user clicks “Done!” (see figure \ref{fig:imp3}), the setup of the controller points is finished, which leads the program to the game screen. 
 The game screen takes care of registering what the user does in order to tell the car in the game how to behave. 
 An example of how the game screen looks when the program is running can be found in figure \ref{fig:imp4}. 
@@ -148,7 +148,7 @@ void mainMenu::mouseReleased(int x, int y, int button){
 Snippet \ref{lst:lst3} activates whenever the user release a mouse button.
 The 3 if-statements check what selection is being made (chosen by the user pressing one of the three buttons on the screen). 
 Only the leftPointBtn if-statement will be explained, since the other if-statements does exactly the same, except the values being changed are called “right” or “hand” instead of “left”. 
-First, the leftPointBtn (buttons on the screen) is set to false. Then the program runs the “saveVals” function, which finds the colours that should be thresholded, based on the selected pixels. 
+First, the leftPointBtn (buttons on the screen) is set to false. Then the program runs the “saveVals” function, which finds the colors that should be thresholded, based on the selected pixels. 
 These threshold values are saved in the “leftVals” array.
 leftIsActive is then set to true, telling the program that some values have been selected for the “left” values.
 Lastly, drawRect is set to false, telling the program that the rectangle should no longer be drawn on the screen.
@@ -156,7 +156,7 @@ Lastly, drawRect is set to false, telling the program that the rectangle should 
 
 Snippet \ref{lst:lst4} finds the threshold values and inserts them into an array. 
 Note that parts of this function have been excluded in this snippet, so only the core remains. 
-The function goes through each of the selected pixels, converts each of the pixels from the RGB (red, green, blue) colour space, to HSV (hue, saturation, value). 
+The function goes through each of the selected pixels, converts each of the pixels from the RGB (red, green, blue) color space, to HSV (hue, saturation, value). 
 The hue values of each pixel are then pushed into an array in the form of a vector. 
 It then sorts these values, from lowest to highest, and finds the median hue value of all the pixels in the array, by picking the center one. 
 This hue value is then inserted into an array, together with the lowest saturation and lowest value, defined as sLow and vLow, which are constant values. 
@@ -208,13 +208,13 @@ Snippet \ref{lst:lst5} is run through each time the program updates.
 First, the current pixel is set to black. 
 This ensures that all pixels, not being thresholded, will be black. 
 Then, the program checks if leftIsActive is true, and if it is, it will threshold colors based on the values in the leftVals array. 
-If the current pixel is inside the threshold range, its colour will be changed to red. 
-The same will be done for the two last if-statements, setting the colours to green and blue, respectively, instead, if the pixel is inside the respective threshold range.
+If the current pixel is inside the threshold range, its color will be changed to red. 
+The same will be done for the two last if-statements, setting the colors to green and blue, respectively, instead, if the pixel is inside the respective threshold range.
 
 
 \subsubsection*{Game Screen}
 The gameScreen.cpp file takes input from the mainMenu.cpp, so it knows what colors to detect. 
-The gameScreen.cpp file detects the selected colours, performs a BLOB analysis on these colours, finds the center of the colours, and sends these center-points to the according classes. 
+The gameScreen.cpp file detects the selected colors, performs a BLOB analysis on these colors, finds the center of the colors, and sends these center-points to the according classes. 
 Then it receives input from these classes and takes care of simulating key presses.
 \bigskip
 
